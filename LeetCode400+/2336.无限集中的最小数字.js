@@ -1,3 +1,5 @@
+// 提交后效率还行 ，感觉目前的算法复杂度还是挺高的
+
 var SmallestInfiniteSet = function() {
     // 应该将取出来的数做从小到大排序 并存起来
     this.queue = []
@@ -28,7 +30,7 @@ SmallestInfiniteSet.prototype.popSmallest = function() {
  * @return {void}
  */
 SmallestInfiniteSet.prototype.addBack = function(num) {
-    // 从上面的集合中移除
+    // 从上面的集合中移除   这个地方可以使用二分查找优化
     let index = this.queue.indexOf(num)
     if(index!==-1){
         this.queue.splice(index,1)
@@ -40,9 +42,9 @@ small = new SmallestInfiniteSet();
 small.addBack(2);    // 2 已经在集合中，所以不做任何变更。
 console.log(small.popSmallest()); // 返回 1 ，因为 1 是最小的整数，并将其从集合中移除。
 console.log(small.popSmallest()); // 返回 2 ，并将其从集合中移除。
-// console.log(small.popSmallest()); // 返回 3 ，并将其从集合中移除。
-// small.addBack(1);    // 将 1 添加到该集合中。
-// console.log(small.popSmallest()); // 返回 1 ，因为 1 在上一步中被添加到集合中，
-//                                    // 且 1 是最小的整数，并将其从集合中移除。
-// console.log(small.popSmallest()); // 返回 4 ，并将其从集合中移除。
-// console.log(small.popSmallest()); // 返回 5 ，并将其从集合中移除。
+console.log(small.popSmallest()); // 返回 3 ，并将其从集合中移除。
+small.addBack(1);    // 将 1 添加到该集合中。
+console.log(small.popSmallest()); // 返回 1 ，因为 1 在上一步中被添加到集合中，
+                                   // 且 1 是最小的整数，并将其从集合中移除。
+console.log(small.popSmallest()); // 返回 4 ，并将其从集合中移除。
+console.log(small.popSmallest()); // 返回 5 ，并将其从集合中移除。
