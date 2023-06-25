@@ -14,6 +14,7 @@ var combinationSum3 = function(k, n) {
                 digui(i+1,layer+1,buff,sum)
                 buff.pop()
                 sum-=i
+                
             }
         }
         
