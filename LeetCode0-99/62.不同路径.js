@@ -16,16 +16,16 @@
 // };      
 //内存优化版本n
 var uniquePaths = function(m, n) {
-    if((m<2 || n<2)) return 1
+    if(m<2 || n<2) return 1
     let dp = new Array(n).fill(1)
-    for(let i = 1; i <m ; i++){
-        let a = 1
-        for(let j = 1; j<n ; j++){
-            dp[j] = a + dp[j]
-            a = dp[j]
+    for(let i=1; i<m; i++){
+        for(let j=1;j<n;j++){
+            dp[j] += dp[j-1]
         }
     }
     return dp[n-1]
-};  
+};
+
+
 
 console.log(uniquePaths(3,7));
