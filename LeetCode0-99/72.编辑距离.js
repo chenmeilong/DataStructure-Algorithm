@@ -17,7 +17,6 @@
 //             //只能删除
 //             return 1+index1
 //         }
-
 //         if(buff[index1][index2]===-1){
 //             let count
 //             if(word1[index1]===word2[index2]){
