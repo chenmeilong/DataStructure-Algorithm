@@ -14,4 +14,6 @@ var dailyTemperatures = function(temperatures) {
     }
     return result
 };
+
+
 console.log(dailyTemperatures([73,74,75,71,69,72,76,73]));
