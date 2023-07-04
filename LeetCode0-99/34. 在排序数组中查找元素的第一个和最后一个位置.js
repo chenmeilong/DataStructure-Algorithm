@@ -21,46 +21,70 @@
      */
 
 
-var searchRange = function(nums, target) {
-    let left = findLeft(nums,target)
-    let right = findRight(nums,target)
-    return [left,right]
+// var searchRange = function(nums, target) {
+//     let left = findLeft(nums,target)
+//     let right = findRight(nums,target)
+//     return [left,right]
 
-    function findLeft(nums,target){
-        let left = 0,right = nums.length-1
-        //先找左边界
-        let index = -1
-        while (left <= right) {
-            let mid = Math.floor((left + right)/2)
-            if(nums[mid]>target){
-                right = mid -1
-            }else if (nums[mid]<target){
-                left = mid + 1
+//     function findLeft(nums,target){
+//         let left = 0,right = nums.length-1
+//         //先找左边界
+//         let index = -1
+//         while (left <= right) {
+//             let mid = Math.floor((left + right)/2)
+//             if(nums[mid]>target){
+//                 right = mid -1
+//             }else if (nums[mid]<target){
+//                 left = mid + 1
+//             }else{
+//                 index = mid
+//                 right = mid-1
+//             }
+//         }
+//         return index
+//     }
+//     function findRight(nums,target){
+//         let left = 0,right = nums.length-1
+//         let index = -1
+//         while (left <= right) {
+//             let mid = Math.floor((left + right)/2)
+//             if(nums[mid]>target){
+//                 right = mid -1
+//             }else if (nums[mid]<target){
+//                 left = mid + 1
+//             }else{
+//                 index = mid
+//                 left = mid + 1
+//             }
+//         }
+//         return index
+//     }
+// };
+
+
+var searchRange = function(nums, target) {
+    if(nums.length===0) return [-1,-1]
+    if(nums.length===1) return target===nums[0]?[0,0]:[-1,-1]
+    const findIndex = (tar,dir)=>{
+        let left = 0
+        let right = nums.length-1
+        while(left<right){
+            let mid = dir==='left'? Math.floor((left + right)/2):Math.ceil((left + right)/2)
+            if(dir==='left'){
+                if(nums[mid]<tar) left = mid + 1
+                else right = mid
             }else{
-                index = mid
-                right = mid-1
+                if(nums[mid]>tar) right = mid-1
+                else left = mid
             }
         }
-        return index
+        return dir==='left'?left:right
     }
-    function findRight(nums,target){
-        let left = 0,right = nums.length-1
-        let index = -1
-        while (left <= right) {
-            let mid = Math.floor((left + right)/2)
-            if(nums[mid]>target){
-                right = mid -1
-            }else if (nums[mid]<target){
-                left = mid + 1
-            }else{
-                index = mid
-                left = mid + 1
-            }
-        }
-        return index
-    }
+    let left =  findIndex(target,'left')
+    if(left===0 && nums[left]!==target) left = Infinity 
+    let right = findIndex(target,'right')
+    return right>=left?[left,right]:[-1,-1]
 };
 
-// 
 
-console.log(searchRange([5,7,7,8,8,10],8));
+console.log(searchRange([2,2],3));
