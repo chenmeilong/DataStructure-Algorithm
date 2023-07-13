@@ -1,19 +1,17 @@
+
 var reverseWords = function(s) {
-    s = s.trim()
-    let res =''
-    let l = s.length-1
-    let r = s.length
-    while(l>=0 && r>=l){
-        if(s[l]===' ' && s[l-1]!==' '){
-            res+=s.slice(l+1,r).trim()
-            res+=' '
-            r = l
+    let right = s.length
+    let left = s.length-1
+    let res = []
+    while(left>=0){
+        if(left===0 || s[left-1]===' '){
+            let newStr = s.slice(left,right).trim()
+            if(newStr!=='') res.push(newStr)
+            right = left
         }
-        l--
+        left--
     }
-    res+=s.slice(0,r)
-    // console.log(res);
-    return res
+    return res.join(' ')
 };
 
 console.log(reverseWords('a good   example'));
