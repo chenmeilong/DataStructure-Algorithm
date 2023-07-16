@@ -46,21 +46,39 @@
 // };
 
 // 还有一种做法是 dp[0] = true， 这很重要
-var canPartition = function(nums) {
-    let sum = nums.reduce((sum,num)=>sum+=num,0)
-    if(sum%2) return false  //求和为奇数不可分割
-    sum >>=1
-    if(Math.max(...nums)>sum) return false  //最大值大于 一半 则不可能分割
-    let dp = new Array(sum+1).fill(false)
-    dp[0] = true
-    for(let num of nums){
-        for(let j=sum;j>=num;j--){  //第二层的循环我们需要从大到小计算,因为从新到达是更新后的值，这样能保证值是之前的值
-            dp[j] = dp[j] || dp[j-num]
-        }
-        if(dp[sum]===true) return true   //提前返回 因为提前找到了，后面就无需计算
-    }
-    return false
-};
+// var canPartition = function(nums) {
+//     let sum = nums.reduce((sum,num)=>sum+=num,0)
+//     if(sum%2) return false  //求和为奇数不可分割
+//     sum >>=1
+//     if(Math.max(...nums)>sum) return false  //最大值大于 一半 则不可能分割
+//     let dp = new Array(sum+1).fill(false)
+//     dp[0] = true
+//     for(let num of nums){
+//         for(let j=sum;j>=num;j--){  //第二层的循环我们需要从大到小计算,因为从新到达是更新后的值，这样能保证值是之前的值
+//             dp[j] = dp[j] || dp[j-num]
+//         }
+//         if(dp[sum]===true) return true   //提前返回 因为提前找到了，后面就无需计算
+//     }
+//     return false
+// };
 
 
-console.log(canPartition([2,2,3,5]));
+// dp[0] = true 没设置，但是转换为另外一种形式考虑了
+// var canPartition = function(nums) {
+//     let target = nums.reduce(((sum,num)=>sum+num),0)
+//     if(target%2!==0) return false
+//     target/=2
+//     if(Math.max(...nums)>target) return false
+//     let dp = new Array(target+1).fill(false)
+//     for(let i=0;i<nums.length;i++){
+//         for(let j=target;j>=nums[i];j--){
+//             dp[j] = dp[j] || j===nums[i] || dp[j-nums[i]]
+//         }
+//         console.log(dp);
+//         if(dp[target]) return true
+//     }
+//     return false
+// };
+
+
+console.log(canPartition([1,2,5]));
