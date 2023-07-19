@@ -5,20 +5,20 @@
  */
 
 //自己写得的滑动窗口 时间空间都是60%击败
-var lengthOfLongestSubstring = function(s) {
-    if(s.length==0 || s==null) return 0
-    let list = []
-    let max = 1
-    for(let i=0 ; i<s.length ; i++){
-        if(list.includes(s[i])){
-            if(list.length>max) max = list.length
-            list.splice(0,list.indexOf(s[i])+1)   //清除前面几个位置的数据  比如(ab)cb
-        }
-        list.push(s[i])
-    }
-    if(list.length>max) max = list.length
-    return max
-};
+// var lengthOfLongestSubstring = function(s) {
+//     if(s.length==0 || s==null) return 0
+//     let list = []
+//     let max = 1
+//     for(let i=0 ; i<s.length ; i++){
+//         if(list.includes(s[i])){
+//             if(list.length>max) max = list.length
+//             list.splice(0,list.indexOf(s[i])+1)   //清除前面几个位置的数据  比如(ab)cb
+//         }
+//         list.push(s[i])
+//     }
+//     if(list.length>max) max = list.length
+//     return max
+// };
 
 // 不使用slice
 // var lengthOfLongestSubstring = function(s) {
@@ -38,4 +38,4 @@ var lengthOfLongestSubstring = function(s) {
 //     return max
 // };
 
-console.log(lengthOfLongestSubstring('pwwkew'))
+console.log(lengthOfLongestSubstring('aabaab!bb'))
