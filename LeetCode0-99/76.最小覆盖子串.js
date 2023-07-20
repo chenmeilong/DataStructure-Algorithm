@@ -1,3 +1,5 @@
+// 使用对应代替哈希能提高速度
+
 const minWindow = (s, t) => {
     let minLen = s.length + 1;
     let start = s.length;     // 结果子串的起始位置
@@ -30,5 +32,44 @@ const minWindow = (s, t) => {
     if (start == s.length) return "";
     return s.substring(start, start + minLen); // 根据起点和minLen截取子串
   };
+
+
+// 哈希
+// var minWindow = function(s, t) {
+//   let tmap = new Map()
+//   for(let i=0;i<t.length;i++){
+//     tmap.set(t[i],(tmap.get(t[i]) || 0) + 1)
+//   }
+//   // 比较s中是否涵盖t
+//   const compareST = (smap,tmap)=>{
+//     for(let t of tmap){
+//       if(smap.get(t[0])===undefined || smap.get(t[0])<t[1]) return false
+//     }
+//     return true
+//   }
+//   // 左闭右边开
+//   let left = 0
+//   let right = 0
+//   let smap = new Map()
+//   let res = [0,1000000]
+//   while(right<=s.length){
+//     if(compareST(smap,tmap)){
+//       if(right-left<res[1]-res[0]){
+//         res[0] = left
+//         res[1] = right
+//       }
+//       smap.set(s[left],smap.get(s[left])-1)
+//       left++
+//     }else{
+//       smap.set(s[right],(smap.get(s[right]) || 0)+1)
+//       right++
+//     }
+//   }
+//   return res[1]===1000000? "": s.slice(res[0],res[1])
+// };
+
+
+
+
 // console.log(minWindow("ADOBECODEBANC","ABC"));
-console.log(minWindow("a","a"));
+console.log(minWindow("a","aa"));
