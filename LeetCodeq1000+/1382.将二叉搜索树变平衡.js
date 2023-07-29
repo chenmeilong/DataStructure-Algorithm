@@ -22,7 +22,7 @@ var balanceBST = function(root) {
         return o
     }
     let inorderSeq = []
-    getInorder(root) //中序遍历
+    getInorder(root) //中序遍历 
     return build(0, inorderSeq.length - 1)
 };
 
