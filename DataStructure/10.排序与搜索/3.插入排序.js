@@ -5,9 +5,8 @@
 
 
 function insertionSort(array) {
-    let temp 
     for(let i=1; i<array.length; i++){
-        temp = array[i]
+        let temp = array[i]
         let j = i
         while(j > 0 && array[j-1]>temp){
             array[j] = array[j-1]
