@@ -6,18 +6,9 @@ var CQueue = function() {
     this.inStack=[]
     this.outStack=[]
 };
-
-/** 
- * @param {number} value
- * @return {void}
- */
 CQueue.prototype.appendTail = function(value) {
     this.inStack.push(value)
 };
-
-/**
- * @return {number}
- */
 CQueue.prototype.deleteHead = function() {
     if(!this.outStack.length){
         //outStack没有东西 时进入
