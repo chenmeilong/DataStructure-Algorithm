@@ -44,9 +44,9 @@ class MinStack{
 
 const minStack = new MinStack()
 
-minStack.push(-2)
 minStack.push(0)
-minStack.push(-3)
+minStack.push(1)
+minStack.push(0)
 
 
 // console.log(minStack.normalStack)
@@ -55,6 +55,6 @@ minStack.push(-3)
 console.log(minStack.min())  
 
 console.log(minStack.pop())
-console.log(minStack.top())
+// console.log(minStack.top())
 
 console.log(minStack.min())  
