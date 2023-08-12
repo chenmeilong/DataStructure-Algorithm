@@ -1,6 +1,4 @@
-
-
-// DP 会超时  因为找出最大值浪费了大量时间
+// DP 会超时  解决办法：因为找出最大值浪费了大量时间
 // 维护一个单调栈  单调减,存放的index
 var maxResult = function(nums, k) {
     let dp = []
