@@ -1,6 +1,7 @@
 
 // 广度优先搜索
 var findOrder = function(numCourses, prerequisites) {
+    // 入度
     let inDegree = new Array(numCourses).fill(0)
     let graph = {}
     //构建邻接表
@@ -11,8 +12,8 @@ var findOrder = function(numCourses, prerequisites) {
     })
     let result = []
     let queue = []
-    // console.log(graph);
-    // console.log(inDegree);
+    console.log(graph);
+    console.log(inDegree);
     inDegree.forEach((num,index)=>{
         if(num===0) queue.push(index)
     })
@@ -31,4 +32,4 @@ var findOrder = function(numCourses, prerequisites) {
 };
 
 
-console.log(findOrder(4,[[1,0],[2,0],[3,1],[3,2]]));
+console.log(findOrder(4,[[3,1],[3,2],[1,0],[2,0]]));
