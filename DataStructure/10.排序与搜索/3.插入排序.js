@@ -13,7 +13,6 @@ function insertionSort(array) {
             j--
         }
         array[j] = temp  //j为找到的位置 放置新加入排序的temp
-
     }
     return array;
 };
