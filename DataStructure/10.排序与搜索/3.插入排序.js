@@ -4,6 +4,8 @@
 // 头两项就已正确排序，接着和第三项比较（它是该插入到第一、第二还是第三的位置呢），以此类推。
 
 
+
+
 function insertionSort(array) {
     for(let i=1; i<array.length; i++){
         let temp = array[i]
