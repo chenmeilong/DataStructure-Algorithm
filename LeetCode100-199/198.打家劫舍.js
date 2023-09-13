@@ -10,6 +10,7 @@ var rob = function(nums) {
     return dp[nums.length-1]
 };
 
+ 
 
 //空间优化
 // var rob = function(nums) {
