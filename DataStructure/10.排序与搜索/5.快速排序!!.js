@@ -16,7 +16,6 @@ function quickSort(arr, left , right){
         } 
     }
     [arr[i],arr[left]] = [arr[left],arr[i]]
-
     //左边需要重新排序
     quickSort(arr, left , i-1)
     //右边需要重排序
