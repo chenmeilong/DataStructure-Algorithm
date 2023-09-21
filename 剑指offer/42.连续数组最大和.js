@@ -18,6 +18,7 @@ var maxSubArray = function(nums) {
 };
 
 
+
 //分治算法  没学会
 // var maxSubArray = function(nums) {
 // };
